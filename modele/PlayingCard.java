@@ -1,4 +1,5 @@
-class PlayingCard{
+package modele;
+public class PlayingCard{
     private Rank rank;
     private Suit suit;
     private boolean faceUp;

@@ -1,3 +1,4 @@
+package modele;
 public class Player{
     private String name;
     private Hand hand;
@@ -16,8 +17,8 @@ public class Player{
         this.hand.addCard(pc);
     }
 
-    public void removeCard(){
-        this.hand.removeCard();
+    public PlayingCard removeCard(){
+       return this.hand.removeCard();
     }
 
     public PlayingCard getCard(int index){

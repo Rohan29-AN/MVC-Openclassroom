@@ -1,3 +1,4 @@
+package modele;
 import java.util.*;
 public class Deck{
     List<PlayingCard> cards=new ArrayList<PlayingCard>();
@@ -5,7 +6,7 @@ public class Deck{
     public Deck(){
         for(Rank rank: Rank.values()){
             for(Suit suit: Suit.values()){
-                System.out.prinln("Creating card ["+rank+"] ["+suit+"]");
+                //System.out.println("Creating card ["+rank+"] ["+suit+"]");
                 cards.add(new PlayingCard(rank,suit));
             }
         }
@@ -13,7 +14,7 @@ public class Deck{
 
     public void shuffle(){
         Random rand=new Random();
-        int cardsSize= this.cards.size()
+        int cardsSize= this.cards.size();
         for(int i=0;i<cardsSize; i++){
             int randInt=rand.nextInt(cardsSize);
             Collections.swap(this.cards,i,randInt);

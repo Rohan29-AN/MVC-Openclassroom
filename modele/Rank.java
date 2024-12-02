@@ -1,3 +1,4 @@
+package modele;
 public enum Rank{
     ACE(1),
     TWO(2),
@@ -14,13 +15,13 @@ public enum Rank{
     KING(13);
 
 
-    private final int value;
+   int rank;
 
-    public Rank(int value){
-        this.value=value;
+    private Rank(int value){
+        this.rank=value;
     }
 
     public int getValue(){
-        return value;
+        return rank;
     }
 }
