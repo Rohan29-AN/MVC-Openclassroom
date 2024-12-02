@@ -19,4 +19,8 @@ class PlayingCard{
     public boolean isFaceUp(){
         return this.faceUp;
     }
+
+    public void flip(){
+        this.faceUp=!this.faceUp;
+    }
 }
