@@ -4,6 +4,7 @@ import vue.*;
 import modele.*;
 import modele.PlayingCard;
 import vue.View;
+import game.*;
 
 public class GameController{
     enum GameState{
@@ -77,37 +78,7 @@ public class GameController{
     }
 
     public void evaluateWinner(){
-        Player bestPlayer=null;
-        int bestRank=-1;
-        int bestSuit=-1;
-
-        for(Player player:this.players){
-            boolean newBestPlayer= false;
-            if(bestPlayer==null){
-                newBestPlayer=true;
-            }
-            else{
-                PlayingCard pc=player.getCard(0);
-                int thisRank= pc.getRank().getValue();
-                if(thisRank>=bestRank){
-                    if(thisRank> bestRank){
-                        newBestPlayer=true;
-                    }
-                    else{
-                        if(pc.getSuit().getValue() > bestSuit){
-                            newBestPlayer=true;
-                        }
-                    }
-                }
-            }
-            if(newBestPlayer){
-                bestPlayer=player;
-                PlayingCard pc= bestPlayer.getCard(0);
-                bestRank=pc.getRank().getValue();
-                bestSuit=pc.getSuit().getValue();
-            }
-        }
-        this.playerWinner=bestPlayer;
+        this.playerWinner=new GameEvaluator().evaluateWinner(this.players);
     }
 
     void displayWinner(){
