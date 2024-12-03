@@ -4,7 +4,7 @@ import vue.*;
 import modele.*;
 import modele.PlayingCard;
 import vue.View;
-import game.*;
+import game.GameEvaluator;
 
 public class GameController{
     enum GameState{
@@ -18,12 +18,14 @@ public class GameController{
     private Player playerWinner;
     View view;
     GameState gameState;
+    GameEvaluator gameEvaluator;
 
-    public GameController(View view,Deck deck){
+    public GameController(View view,Deck deck,GameEvaluator gameEvaluator){
         this.view=view;
         this.deck=deck;
         this.players=new ArrayList<Player>();
         this.gameState=GameState.ADDING_PLAYERS;
+        this.gameEvaluator=gameEvaluator;
         this.view.setController(this);
     }
 
@@ -78,7 +80,7 @@ public class GameController{
     }
 
     public void evaluateWinner(){
-        this.playerWinner=new GameEvaluator().evaluateWinner(this.players);
+        this.playerWinner=this.gameEvaluator.evaluateWinner(this.players);
     }
 
     void displayWinner(){
