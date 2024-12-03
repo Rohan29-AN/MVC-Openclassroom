@@ -8,7 +8,7 @@ public class HighCardGameEvaluator implements GameEvaluator{
             int bestRank=-1;
             int bestSuit=-1;
 
-            for(Player player:this.players){
+            for(Player player:players){
                 boolean newBestPlayer= false;
                 if(bestPlayer==null){
                     newBestPlayer=true;
@@ -34,7 +34,6 @@ public class HighCardGameEvaluator implements GameEvaluator{
                     bestSuit=pc.getSuit().getValue();
                 }
             }
-            this.playerWinner=bestPlayer;
-            return this.playerWinner;
+           return bestPlayer;
  }
 }
