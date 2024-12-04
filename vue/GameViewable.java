@@ -1,5 +1,6 @@
 package vue;
 import java.util.*;
+import controleur.*;
 
 public interface GameViewable{
     void setController(GameController gameController);
