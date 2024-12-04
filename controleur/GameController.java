@@ -3,7 +3,7 @@ import java.util.*;
 import vue.*;
 import modele.*;
 import modele.PlayingCard;
-import vue.View;
+import vue.GameViewable;
 import game.GameEvaluator;
 
 public class GameController{
@@ -20,7 +20,7 @@ public class GameController{
     GameState gameState;
     GameEvaluator gameEvaluator;
 
-    public GameController(View view,Deck deck,GameEvaluator gameEvaluator){
+    public GameController(GameViewable view,Deck deck,GameEvaluator gameEvaluator){
         this.view=view;
         this.deck=deck;
         this.players=new ArrayList<Player>();
