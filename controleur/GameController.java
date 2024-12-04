@@ -16,7 +16,7 @@ public class GameController{
     private Deck deck;
     private List<Player> players;
     private Player playerWinner;
-    View view;
+    GameViewable view;
     GameState gameState;
     GameEvaluator gameEvaluator;
 
