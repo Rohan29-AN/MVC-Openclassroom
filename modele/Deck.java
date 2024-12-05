@@ -1,16 +1,8 @@
 package modele;
 import java.util.*;
 public abstract class Deck{
-    List<PlayingCard> cards=new ArrayList<PlayingCard>();
-
-    public Deck(){
-        for(Rank rank: Rank.values()){
-            for(Suit suit: Suit.values()){
-                //System.out.println("Creating card ["+rank+"] ["+suit+"]");
-                cards.add(new PlayingCard(rank,suit));
-            }
-        }
-    }
+    protected List<PlayingCard> cards=new ArrayList<PlayingCard>();
+    
 
     public void shuffle(){
         Random rand=new Random();
