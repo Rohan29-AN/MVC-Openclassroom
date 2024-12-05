@@ -15,5 +15,6 @@ public class DeckFactory{
                 return new SmallDeck();
             }
         }
+        return new NormalDeck();
     }
 }
