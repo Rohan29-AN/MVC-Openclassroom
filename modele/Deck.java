@@ -1,6 +1,6 @@
 package modele;
 import java.util.*;
-public class Deck{
+public abstract class Deck{
     List<PlayingCard> cards=new ArrayList<PlayingCard>();
 
     public Deck(){
