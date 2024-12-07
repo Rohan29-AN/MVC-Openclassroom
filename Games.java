@@ -11,7 +11,5 @@ public class Games{
 		gc.run();
 		System.out.println("Nothing special, I'm tired");
 		System.out.println("But I don't want to give up");
-		System.out.println("The purpose of these sout is to maintain my coding streak every day");
-		System.out.println("Good night");
 	}
 }
