@@ -9,7 +9,6 @@ public class Games{
     public static void main(String args[]) {
 		GameController gc = new GameController(new CommandLineView(),DeckFactory.makeDeck(DeckType.NORMAL),new HighCardGameEvaluator());
 		gc.run();
-		System.out.println("Nothing special, I'm tired");
-		System.out.println("But I don't want to give up");
+	
 	}
 }
