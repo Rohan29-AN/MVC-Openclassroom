@@ -1,50 +1,65 @@
 package vue;
+
 import java.util.*;
-import controleur.*; 
+import controleur.*;
 
+public class GameViewables implements GameViewable {
+    List<GameViewable> views;
 
-public class GameViewables implements GameViewable{
-    List<GameViewable>  views;
-
-
-    public GameViewables(){
-        this.views=new ArrayList<GameViewable>();
+    public GameViewables() {
+        this.views = new ArrayList<GameViewable>();
     }
 
-    public void addView(GameViewable view){
+    public void addView(GameViewable view) {
         this.views.add(view);
     }
 
-     void setController(GameController gameController){
-
-     }
-  
-    void promptForPlayerName(){
-
+    void setController(GameController gameController) {
+        for (GameViewable view : this.view) {
+            this.view.setController(gameController);
+        }
     }
-  
-    void promptForNewGame(){
 
+    void promptForPlayerName() {
+        for (GameViewable view : this.view) {
+            this.view.promptForPlayerName();
+        }
     }
-  
-    void promptForFlip(){
 
+    void promptForNewGame() {
+        for (GameViewable view : this.view) {
+            this.view.promptForNewGame();
+        }
     }
-  
-    void showWinner(String playerName){
 
+    void promptForFlip() {
+        for (GameViewable view : this.view) {
+            this.view.promptForFlip();
+        }
     }
-  
-    void showPlayerName(int playerIndex,String playerName){
 
+    void showWinner(String playerName) {
+        for (GameViewable view : this.view) {
+            this.view.showWinner(playerName);
+        }
     }
-  
-    void showFaceDownCardForPlayer(int i,String playerName){
 
+    void showPlayerName(int playerIndex, String playerName) {
+        for (GameViewable view : this.view) {
+            this.view.showPlayerName(playerIndex, playerName);
+        }
     }
-  
-    void showCardForPlayer(int i,String playerName,int rank,String suit){
 
+    void showFaceDownCardForPlayer(int i, String playerName) {
+        for (GameViewable view : this.view) {
+            this.view.showFaceDownCardForPlayer(i, playerName);
+        }
+    }
+
+    void showCardForPlayer(int i, String playerName, int rank, String suit) {
+        for (GameViewable view : this.view) {
+            this.view.showCardForPlayer(i, playerName, rank, suit);
+        }
     }
 
 }
