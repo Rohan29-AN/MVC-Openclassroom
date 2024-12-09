@@ -31,7 +31,7 @@ public class GameController{
 
     public void addPlayer(String playerName){
         if(this.gameState == GameState.ADDING_PLAYERS){
-            this.players.add(new IPlayer(playerName));
+            this.players.add(new Player(playerName));
             this.view.showPlayerName(players.size(),playerName);
         }
     }
@@ -80,7 +80,7 @@ public class GameController{
     }
 
     public void evaluateWinner(){
-        this.playerWinner=this.gameEvaluator.evaluateWinner(this.players);
+        this.playerWinner=new  WinningPlayer(this.gameEvaluator.evaluateWinner(this.players));
     }
 
     void displayWinner(){
