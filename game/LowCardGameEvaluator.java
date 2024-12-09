@@ -3,12 +3,12 @@ import java.util.*;
 import modele.*;
 public class LowCardGameEvaluator implements GameEvaluator{
     @Override
-    public Player evaluateWinner(List<Player> players){
-        Player bestPlayer=null;
+    public IPlayer evaluateWinner(List<IPlayer> players){
+        IPlayer bestPlayer=null;
             int bestRank=13;
             int bestSuit=4;
 
-            for(Player player:players){
+            for(IPlayer player:players){
                 boolean newBestPlayer= false;
                 if(bestPlayer==null){
                     newBestPlayer=true;

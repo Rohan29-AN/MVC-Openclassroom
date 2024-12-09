@@ -1,9 +1,9 @@
 package modele;
-public class Player{
+public class IPlayer{
     private String name;
     private Hand hand;
 
-    public Player(String name){
+    public IPlayer(String name){
         this.name= name;
         this.hand=new Hand();
 

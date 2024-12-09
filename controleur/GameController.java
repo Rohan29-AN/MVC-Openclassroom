@@ -14,8 +14,8 @@ public class GameController{
     }
 
     private Deck deck;
-    private List<Player> players;
-    private Player playerWinner;
+    private List<IPlayer> players;
+    private IPlayer playerWinner;
     GameViewable view;
     GameState gameState;
     GameEvaluator gameEvaluator;
@@ -23,7 +23,7 @@ public class GameController{
     public GameController(GameViewable view,Deck deck,GameEvaluator gameEvaluator){
         this.view=view;
         this.deck=deck;
-        this.players=new ArrayList<Player>();
+        this.players=new ArrayList<IPlayer>();
         this.gameState=GameState.ADDING_PLAYERS;
         this.gameEvaluator=gameEvaluator;
         this.view.setController(this);
@@ -31,7 +31,7 @@ public class GameController{
 
     public void addPlayer(String playerName){
         if(this.gameState == GameState.ADDING_PLAYERS){
-            this.players.add(new Player(playerName));
+            this.players.add(new IPlayer(playerName));
             this.view.showPlayerName(players.size(),playerName);
         }
     }
@@ -56,7 +56,7 @@ public class GameController{
         if(this.gameState!=GameState.CARDS_DEALT){
             this.deck.shuffle();
             int playerIndex=1;
-            for(Player player: this.players){
+            for(IPlayer player: this.players){
                 player.addCardToHand(this.deck.removeTopCard());
                 this.view.showFaceDownCardForPlayer(playerIndex++,player.getName());
             }
@@ -67,7 +67,7 @@ public class GameController{
 
     public void flipCards(){
         int playerIndex=1;
-        for(Player player:this.players){
+        for(IPlayer player:this.players){
             PlayingCard pc = player.getCard(0);
             pc.flip();
             this.view.showCardForPlayer(playerIndex++,player.getName(),pc.getRank().getValue(),pc.getSuit().getSymbol());
@@ -88,7 +88,7 @@ public class GameController{
     }
 
     void rebuildDeck(){
-        for(Player player:this.players){
+        for(IPlayer player:this.players){
             this.deck.returnCardToDeck(player.removeCard());
         }
     }
